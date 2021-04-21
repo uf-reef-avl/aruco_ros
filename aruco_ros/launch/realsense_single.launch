@@ -9,8 +9,8 @@
 
 
     <node pkg="aruco_ros" type="single" name="aruco_single">
-        <remap from="/camera_info" to="/camera2/color/camera_info" />
-        <remap from="/image" to="/camera2/color/image_raw" />
+        <remap from="/camera_info" to="/camera/color/camera_info" />
+        <remap from="/image" to="/camera/color/image_raw" />
         <param name="image_is_rectified" value="true"/>
         <param name="marker_size"        value="$(arg markerSize)"/>
         <param name="marker_id"          value="$(arg markerId)"/>
@@ -19,6 +19,8 @@
         <param name="marker_frame"       value="$(arg marker_frame)" />
         <param name="corner_refinement"  value="$(arg corner_refinement)" />
     </node>
+
+    <include file="$(find realsense2_camera)/launch/rs_rgbd.launch"/>
 
 </launch>
 
